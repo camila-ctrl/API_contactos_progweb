@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  defaultTheme,
+  ThemeProvider,
+  Preflight,
+} from "@xstyled/styled-components";
+import ContactsList from "./components/contacts/contacts-list";
 
-function App() {
+const theme = {
+  ...defaultTheme,
+  // Customize your theme here
+};
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Preflight />
+      <ContactsList />
+    </ThemeProvider>
   );
 }
-
-export default App;
